@@ -1,0 +1,35 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/FatCow_Icons32x32/cctv_camera.png</file>
+        <file>icons/FatCow_Icons32x32/film.png</file>
+        <file>icons/FatCow_Icons32x32/pictures.png</file>
+        <file>icons/FatCow_Icons32x32/webcam.png</file>
+        <file>icons/FatCow_Icons32x32/user_silhouette.png</file>
+        <file>icons/FatCow_Icons32x32/movies.png</file>
+        <file>icons/FatCow_Icons32x32/link_add.png</file>
+        <file>icons/FatCow_Icons32x32/folder.png</file>
+        <file>icons/FatCow_Icons32x32/link.png</file>
+        <file>icons/FatCow_Icons32x32/folder_add.png</file>
+        <file>icons/FatCow_Icons32x32/application_cascade.png</file>
+        <file>icons/FatCow_Icons32x32/application_tile_horizontal.png</file>
+        <file>icons/FatCow_Icons32x32/folder_vertical_document.png</file>
+        <file>icons/FatCow_Icons32x32/file_extension_bmp.png</file>
+        <file>icons/FatCow_Icons32x32/file_extension_mpeg.png</file>
+        <file>icons/FatCow_Icons32x32/videodisplay.png</file>
+        <file>icons/FatCow_Icons32x32/folder_camera.png</file>
+        <file>icons/FatCow_Icons32x32/folder_picture.png</file>
+        <file>icons/FatCow_Icons32x32/xfn.png</file>
+        <file>icons/FatCow_Icons32x32/account_menu.png</file>
+        <file>icons/FatCow_Icons32x32/connect.png</file>
+        <file>icons/FatCow_Icons32x32/disconnect.png</file>
+        <file>icons/FatCow_Icons32x32/camera.png</file>
+        <file>icons/FatCow_Icons32x32/camera_black.png</file>
+        <file>icons/FatCow_Icons32x32/control_stop_blue.png</file>
+        <file>icons/FatCow_Icons32x32/control_play_blue.png</file>
+        <file>icons/FatCow_Icons32x32/control_repeat_blue.png</file>
+        <file>icons/FatCow_Icons32x32/resultset_first.png</file>
+        <file>icons/FatCow_Icons32x32/resultset_last.png</file>
+        <file>icons/FatCow_Icons32x32/resultset_next.png</file>
+        <file>icons/FatCow_Icons32x32/resultset_previous.png</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,10 @@
+package flib.proto;
+
+import "common.proto";
+
+// точка
+message Point2i {
+    required int32 x = 1;
+    required int32 y = 2;
+}
+

@@ -1,0 +1,16 @@
+package flib.proto;
+
+import "common.proto";
+import "rect.proto";
+import "landmark.proto";
+import "mat.proto";
+
+// одна детекция лица
+message Face {
+    optional string track_uuid = 1; // идентификатор трека, к которому это лицо относится
+    required Rect rect = 2; // прямоугольник лица
+    repeated Landmark landmarks = 3; // особые точки лица
+    optional Mat mat = 4; // опционально может ходить картинка с лицом
+}
+
+

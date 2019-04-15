@@ -1,0 +1,19 @@
+package flib.proto;
+
+import "common.proto";
+import "pair32i.proto";
+
+// матрица
+message Mat {
+    required int32 depth = 1; // размер элементов матирцы CV_8U, CV_8S, CV_16U и пр.
+    required int32 channels = 2; // количество каналов
+    required int32 rows = 3; // количество строк матрицы (высота)
+    required int32 cols = 4; // количество столбцов (ширина)
+    required int32 step = 5; // количество байтов в одной строке
+    required bytes data = 6; // данные изображения
+    optional bool encoded = 7 [default = false]; // если данные были закодированы через cv::inencode, должно быть true
+    repeated Pair32i params = 8; // параметры, которые передавались в cv::inencode
+}
+
+
+
