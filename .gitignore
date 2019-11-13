@@ -55,3 +55,4 @@ CMakeLists.txt.user*
 
 # зависимые либы пока оставим
 !face/3rdparty/
+!face/3rdparty/*
