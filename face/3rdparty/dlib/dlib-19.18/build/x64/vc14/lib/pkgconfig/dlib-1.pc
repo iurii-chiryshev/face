@@ -1,0 +1,8 @@
+libdir=C:\Users\y.chiryshev\Desktop\dlib-19.18\install/lib
+includedir=C:\Users\y.chiryshev\Desktop\dlib-19.18\install/include
+
+Name: dlib
+Description: Numerical and networking C++ library
+Version: 19.18.0
+Libs: -L${libdir} -ldlib ws2_32 winmm comctl32 gdi32 imm32
+Cflags: -I${includedir} 

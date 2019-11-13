@@ -2,6 +2,7 @@
 #define FACELIB_GLOBAL_H
 
 #include <QtCore/qglobal.h>
+#include <memory>
 
 
 #ifdef FACELIB_LIBRARY

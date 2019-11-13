@@ -2,7 +2,6 @@
 #define ABSTRACTFACEDETECTOR_H
 
 #include "frameproc/abstractframedetector.h"
-#include "frameproc/transmit/abstractfacetransmitter.h"
 #include "faceposeestimator.h"
 #include "facelib_global.h"
 
@@ -22,20 +21,6 @@ public:
     typedef std::shared_ptr<AbstractFaceDetector> Ptr;
     AbstractFaceDetector();
     virtual ~AbstractFaceDetector();
-
-    /**
-     * @brief setTransmitter
-     * @param transmitter
-     * Установить трансмиттер
-     */
-    void setTransmitter(const AbstractFaceTransmitter::Ptr &transmitter);
-
-protected:
-    /**
-     * @brief m_transmitter
-     * Передатчик или вещатель о найденых лицах
-     */
-    AbstractFaceTransmitter::Ptr m_transmitter;
 };
 
 #endif // ABSTRACTFACEDETECTOR_H

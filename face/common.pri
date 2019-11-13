@@ -1,10 +1,20 @@
 HOST_NAME = $$QMAKE_HOST.name
-#-------------------------------------------------
-#   Chiryshev Iurii <iurii.chiryshev@mail.ru>
-#   DESKTOP-QRN46PP - home pc
-#   DESKTOP-48BO0EE - work pc
-#-------------------------------------------------
-win32:contains(HOST_NAME,DESKTOP-QRN46PP|DESKTOP-48BO0EE) {
+win32:contains(HOST_NAME,SIS000307) {
     message( "Chiryshev Iurii $$HOST_NAME detected" )
-    include(common\uchir.pri)
+    include(custom\sis000307.pri)
 } # Chiryshev Iurii PCs
+
+SPEC = $$basename(QMAKESPEC)
+
+UI_DIR      = .ui/$${SPEC}
+MOC_DIR     = .moc/$${SPEC}
+OBJECTS_DIR = .obj/$${SPEC}
+RCC_DIR     = .resources/$${SPEC}
+
+CONFIG(debug, debug|release) {
+    DESTDIR = $$PWD/bin/$${SPEC}/Debug
+}
+
+CONFIG(release, debug|release) {
+    DESTDIR = $$PWD/bin/$${SPEC}/Release
+}

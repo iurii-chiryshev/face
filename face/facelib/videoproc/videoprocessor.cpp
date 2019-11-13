@@ -1,4 +1,5 @@
 #include "videoprocessor.h"
+#include <iostream>
 
 VideoProcessor::VideoProcessor()
 {

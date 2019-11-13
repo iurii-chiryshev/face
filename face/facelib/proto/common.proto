@@ -1,8 +1,0 @@
-package flib.proto;
-
-// Пустое сообщение, которое должны включать все proto файлы facelib
-// После того, как отработает protoc в common.pb.h нужно включить global_facelib.h
-// где объявлен __dllexport
-message Common {}
-
-

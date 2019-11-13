@@ -1,38 +1,32 @@
 #include "io.h"
 
-#include <boost/filesystem.hpp>
-#include <boost/regex.hpp>
-
 namespace flib {
-
-
-
 
 void findFilesByRegex(const string &path, const string &regexp, vector<string> &files, bool onlyTarget)
 {
     files.clear();
-    const boost::regex filter(regexp);
-    boost::filesystem::directory_iterator end_itr;
-    for( boost::filesystem::directory_iterator i( path ); i != end_itr; ++i )
-    {
-        // не файл
-        if( !boost::filesystem::is_regular_file( i->status() ) ){
-            if(onlyTarget == true) return;
-            else continue;
-        }
+//    const boost::regex filter(regexp);
+//    boost::filesystem::directory_iterator end_itr;
+//    for( boost::filesystem::directory_iterator i( path ); i != end_itr; ++i )
+//    {
+//        // не файл
+//        if( !boost::filesystem::is_regular_file( i->status() ) ){
+//            if(onlyTarget == true) return;
+//            else continue;
+//        }
 
 
-        boost::smatch what;
+//        boost::smatch what;
 
-        // не удовлетворяет регулярному выраженнию
-        string filename = i->path().filename().string();
-        if( !boost::regex_match(filename, what, filter ) ){
-            if(onlyTarget == true) return;
-            else continue;
-        }
+//        // не удовлетворяет регулярному выраженнию
+//        string filename = i->path().filename().string();
+//        if( !boost::regex_match(filename, what, filter ) ){
+//            if(onlyTarget == true) return;
+//            else continue;
+//        }
 
-        files.push_back( filename );
-    }
+//        files.push_back( filename );
+//    }
 }
 
 // всевозможные префиксы

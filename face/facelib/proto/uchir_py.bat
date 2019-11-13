@@ -1,3 +1,0 @@
-"C:\Program Files (x86)\protobuf.2.6.1.1\build\native\bin\protoc.exe" -I=D:\2017\projects\face\face\facelib\proto --python_out=D:\2017\projects\face\webface\proto D:\2017\projects\face\face\facelib\proto\common.proto D:\2017\projects\face\face\facelib\proto\timestamp.proto D:\2017\projects\face\face\facelib\proto\rect.proto D:\2017\projects\face\face\facelib\proto\point2i.proto D:\2017\projects\face\face\facelib\proto\pair32i.proto D:\2017\projects\face\face\facelib\proto\mat.proto D:\2017\projects\face\face\facelib\proto\landmark.proto D:\2017\projects\face\face\facelib\proto\face.proto D:\2017\projects\face\face\facelib\proto\detectionresult.proto
-pause
-

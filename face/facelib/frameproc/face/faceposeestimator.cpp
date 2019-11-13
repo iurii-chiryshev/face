@@ -120,7 +120,7 @@ void FacePoseEstimator::estimate(const full_object_detection &detection,
     // Поиск 3d позы головы
     cv::solvePnP(headPoints, detectedPoints,
             projection, cv::noArray(),
-            rvec, tvec, true,cv::ITERATIVE);
+            rvec, tvec, true,cv::SOLVEPNP_ITERATIVE);
     cv::Matx33d rotation;
     cv::Rodrigues(rvec, rotation);
 

@@ -1,10 +1,9 @@
 #include "facedetector.h"
-#include "proto/detectionresult.pb.h"
 #include "util/timestamp.h"
 
 #include <QUuid>
 
-using namespace flib::proto;
+
 using namespace dlib;
 
 FaceDetector::FaceDetector(): m_count(0)
@@ -58,78 +57,19 @@ void FaceDetector::apply(const cv::Mat &src, cv::Mat &dst)
 
 
     }
-
-    // собираем результат и отправляем
-    if(shapes.size() > 0){
-        DetectionResult detectionResult;
-
-        //timestamp
-        int64_t seconds;
-        int32_t nanos;
-        currentTimestamp(seconds,nanos);
-        Timestamp timestamp;
-        timestamp.set_seconds(seconds);
-        timestamp.set_nanos(nanos);
-        detectionResult.set_allocated_timestamp(&timestamp);
-
-        // mat
-        cv::Mat cv_mat = dst;
-        flib::proto::Mat mat;
-        mat.set_channels(cv_mat.channels());
-        mat.set_cols(cv_mat.cols);
-        mat.set_rows(cv_mat.rows);
-        mat.set_depth(cv_mat.depth());
-        mat.set_step(cv_mat.step[0]);
-
-        m_str_data.resize(cv_mat.step[0] * cv_mat.rows);
-        m_cv_data.release();
-        m_cv_data = cv::Mat(cv_mat.rows,cv_mat.cols,cv_mat.type(),(void*)m_str_data.data(),cv_mat.step[0]);
-        cv_mat.copyTo(m_cv_data);
-        mat.set_allocated_data(&m_str_data);
-        detectionResult.set_allocated_mat(&mat);
-
-        //faces
-        for(int i = 0; i < shapes.size();i++){
-            const full_object_detection &obj = shapes[i];
-            dlib::rectangle detect_rect = obj.get_rect();
-            flib::proto::Face *pface = detectionResult.add_faces();
-            // track uuid
-            pface->set_track_uuid(QUuid::createUuid().toString().toStdString() );
-            // rect
-            flib::proto::Rect *prect = new flib::proto::Rect();
-            prect->set_x(detect_rect.tl_corner().x());
-            prect->set_y(detect_rect.tl_corner().y());
-            prect->set_width(detect_rect.width());
-            prect->set_height(detect_rect.height());
-            pface->set_allocated_rect(prect);
-            // не надо делать release_rect, это сделает proto
-
-        }
-
-        // send
-        m_transmitter->send(detectionResult);
-
-        // освободить все, что запихивали через set_allocated
-        mat.release_data();
-        detectionResult.release_mat();
-        detectionResult.release_timestamp();
-
-
-    }
 }
 
 bool FaceDetector::init()
 {
-    // todo correct
-    if(m_transmitter.get() == NULL){
-        m_transmitter = AbstractFaceTransmitter::Null();
-    }
-
     m_count = 0;
+    std::cout << "m_detector = get_frontal_face_detector();" << std::endl;
     m_detector = get_frontal_face_detector();
+    std::cout << "m_gray.release();" << std::endl;
     m_gray.release();
-    deserialize("C:\\Program Files (x86)\\dlib-19.4\\files\\shape_predictor_68_face_landmarks.dat") >> m_poseModel;
-    return true && m_transmitter->init();
+    std::cout << "deserialize" << std::endl;
+    deserialize("shape_predictor_68_face_landmarks.dat") >> m_poseModel;
+    std::cout << "return true;" << std::endl;
+    return true;
 }
 
 void FaceDetector::drawPolyline(cv::Mat &img, const full_object_detection &d, const int start, const int end, bool isClosed)
@@ -166,5 +106,5 @@ void FaceDetector::renderFace(cv::Mat &img, const full_object_detection &d)
 
 void FaceDetector::uninit()
 {
-    m_transmitter->uninit();
+
 }
