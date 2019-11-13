@@ -1,5 +1,3 @@
-!face/3rdparty/
-
 # C++ objects and libs
 *.slo
 *.lo
@@ -54,3 +52,6 @@ object_script.*
 
 # QtCtreator CMake
 CMakeLists.txt.user*
+
+# зависимые либы пока оставим
+!face/3rdparty/
